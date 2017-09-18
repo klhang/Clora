@@ -21,7 +21,7 @@ bundle.js.map
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+git
 /node_modules
 /yarn-error.log
 
