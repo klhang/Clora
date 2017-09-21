@@ -10,7 +10,7 @@ const App = () => (
   <div>
     <header>
       <Link to="/" className="header-link">
-        <h1>This is Clora</h1>
+        <h1>Ask Question and Share Answers on Clora</h1>
       </Link>
       <GreetingContainer />
     </header>

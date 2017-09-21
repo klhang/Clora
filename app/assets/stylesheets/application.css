@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+/*.hero-img {
+  background: url("http://res.cloudinary.com/shuttr/image/upload/v1505958827/skogafoss_z6twbu.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 700px;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}*/
+
+body {
+  font-family: "Abel", sans-serif;
+  background-image: url(./background.jpg);
+}
+
+header {
+  margin-left: 45%;
+}
+
+h1,
+h5 {
+  margin-bottom: 0px;
+}
+
+.header-name {
+  margin: 7px 0 0 0;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-input {
+  margin-left: 20px;
+}
+
+.login-form-box {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+}
+
+.header-link {
+  text-decoration: none;
+  color: black;
+}
