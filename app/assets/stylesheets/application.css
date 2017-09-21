@@ -38,6 +38,7 @@ body {
 
 header {
   margin-left: 45%;
+  /*justify-content: center;*/
 }
 
 h1,
@@ -71,6 +72,7 @@ h5 {
 }
 
 .header-link {
+  justify-content: center;
   text-decoration: none;
   color: black;
 }
