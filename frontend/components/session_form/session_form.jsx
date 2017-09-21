@@ -55,7 +55,7 @@ class SessionForm extends React.Component {
           Welcome to Clora!
           <br />
           Please {this.props.formType} or {this.navLink()}
-          {this.renderErrors()}
+          // {this.renderErrors()}
           <div className="login-form">
             <br />
             <label>
