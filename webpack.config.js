@@ -1,6 +1,7 @@
-const path = require("path");
+var path = require("path");
 
 module.exports = {
+  context: __dirname,
   entry: "./frontend/clora.jsx",
   output: {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
@@ -9,7 +10,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: [/\.jsx?$/],
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
         loader: "babel-loader",
         query: {
@@ -18,6 +19,7 @@ module.exports = {
       }
     ]
   },
+  devtool: "source-maps",
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
