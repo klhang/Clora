@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,6 +39,15 @@ class SessionForm extends React.Component {
     }
   }
 
+  handleDemoLogin(e) {
+    e.preventDefault();
+    const demoUser = {
+      username: "GuestUser",
+      password: "Password"
+    };
+    this.props.processForm({ user: demoUser });
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -57,6 +67,7 @@ class SessionForm extends React.Component {
           <div className="nav_links">
             Please {this.props.formType} or {this.navLink()}
           </div>
+          {this.renderErrors()}
           <div className="login-form">
             <br />
             <label>
@@ -81,6 +92,7 @@ class SessionForm extends React.Component {
             <br />
             <input type="submit" value="Submit" />
           </div>
+          <button onClick={this.handleDemoLogin}>Demo</button>
         </form>
       </div>
     );
