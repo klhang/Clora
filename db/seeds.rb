@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.delete_all
+demo = User.create(
+  username: "GuestUser",
+  password: "Password",
+  # bio: "Hello, World!",
+  # img_url: "http://res.cloudinary.com/shuttr/image/upload/v1505847469/default_profile_ig2uvi.jpg"
+)
