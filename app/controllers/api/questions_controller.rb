@@ -9,21 +9,30 @@ class Api::QuestionsController < ApplicationController
   end
 
   def create
-    @question = current_user.questions.create!(question_params)
-    @question.save
-    render :show
+    @question = Question.new(question_params)
+    if @question.save
+      render :show
+    else
+      render json: @question.errors.full_messages, status: 422
+    end
   end
 
   def update
-    @question = current_user.questions.find(params[:id])
-    @question.update_attributes(question_params)
-    render :show
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      render :show
+    else
+      render json: @question.errors.full_messages, status: 422
+    end
   end
 
   def destroy
-    @question = current_user.questions.find(params[:id])
-    @question.destroy
-    redirect_to "/#/"
+    @question = Question.find(params[:id])
+    if @question.destroy
+      render :show
+    else
+      render json: @question.errors.full_messages, status: 422
+    end
   end
 
   private

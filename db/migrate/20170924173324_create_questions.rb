@@ -6,5 +6,6 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
       t.integer :author_id, null: false, index: true
       t.timestamps null: false
     end
+
   end
 end
