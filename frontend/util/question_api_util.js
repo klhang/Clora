@@ -1,14 +1,14 @@
-export const fetchQuestion = id => {
-  return $.ajax({
-    type: "GET",
-    url: `/api/questions/${id}`
-  });
-};
-
 export const fetchAllQuestions = () => {
   return $.ajax({
     type: "GET",
     url: `/api/questions`
+  });
+};
+
+export const fetchQuestion = id => {
+  return $.ajax({
+    type: "GET",
+    url: `/api/questions/${id}`
   });
 };
 
