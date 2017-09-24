@@ -8,7 +8,8 @@ import QuestionIndex from "./question_index";
 
 const mapStateToProps = state => {
   return {
-    questions: Object.keys(state.questions).map(id => state.questions[id])
+    questions: Object.keys(state.questions).map(id => state.questions[id]),
+    currentUser: state.session.currentUser
   };
 };
 
