@@ -17,6 +17,10 @@ class QuestionIndex extends React.Component {
       return <QuestionIndexItem key={question.id} question={question} />;
     });
 
+    if (this.props.currentUser === null) {
+      return <div />;
+    }
+
     return (
       <div className="QuestionIndex">
         <div className="QuestionIndexFormNew">
