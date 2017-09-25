@@ -8,8 +8,8 @@ class NewQuestion extends React.Component {
     this.state = {
       newQuestionClicked: false,
       question: {
-        question: "",
-        details: "",
+        title: "",
+        description: "",
         author_id: this.props.currentUser.id
       }
     };
@@ -22,7 +22,7 @@ class NewQuestion extends React.Component {
   updateQuestionField() {
     return e => {
       let newState = merge({}, this.state, {
-        question: { question: e.target.value }
+        question: { title: e.target.value }
       });
       this.setState(newState);
     };
@@ -33,7 +33,7 @@ class NewQuestion extends React.Component {
     const question = this.state.question;
     this.props.createQuestion(question).then(newQuestion => {
       let newState = merge({}, this.state, {
-        question: { question: "" },
+        question: { title: "" },
         newQuestionClicked: false
       });
       this.setState(newState);
@@ -53,33 +53,31 @@ class NewQuestion extends React.Component {
     } else {
       return (
         <div className="NewQuestionContainer">
-          <div className="NewQuestionContaining">
-            <div className="NewQuestionBox">
-              <div className="NewQuestionBody">
-                <span className="QuestionIndexUserName">
-                  <a>{this.props.currentUser.username}</a> asks
-                </span>
-                <textarea
-                  className="NewQuestionInput"
-                  placeholder="This is the begining of your question."
-                  onChange={this.updateQuestionField()}
-                  value={this.state.question.question}
-                />
-              </div>
-              <div className="NewQuestionButtonBar">
-                <button
-                  className="CancelButton"
-                  onClick={this.updateNewQuestionClicked(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="NewQuestionButton"
-                  onClick={this.submitNewQuestion}
-                >
-                  Ask Question
-                </button>
-              </div>
+          <div className="NewQuestionBox">
+            <div className="NewQuestionBody">
+              <span className="QuestionIndexUserName">
+                <a>{this.props.currentUser.username}</a> asks
+              </span>
+              <textarea
+                className="NewQuestionInput"
+                placeholder="This is the begining of your question."
+                onChange={this.updateQuestionField()}
+                value={this.state.question.title}
+              />
+            </div>
+            <div className="NewQuestionButtonBar">
+              <button
+                className="CancelButton"
+                onClick={this.updateNewQuestionClicked(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="NewQuestionButton"
+                onClick={this.submitNewQuestion}
+              >
+                Ask Question
+              </button>
             </div>
           </div>
         </div>
