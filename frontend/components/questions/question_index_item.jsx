@@ -12,7 +12,7 @@ class QuestionIndexItem extends React.Component {
     return (
       <li className="QuestionItem">
         <Link to={`/questions/${question.id}`}>
-          <h2 className="QuestionItemQuestion">{question.question}</h2>
+          <h2 className="QuestionItemQuestion">{question.title}</h2>
         </Link>
       </li>
     );
