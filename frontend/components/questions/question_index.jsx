@@ -10,8 +10,6 @@ class QuestionIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuestions();
-    this.props.fetchAnswers();
-    this.props.fetchTopics();
   }
 
   render() {
@@ -19,28 +17,21 @@ class QuestionIndex extends React.Component {
       return <QuestionIndexItem key={question.id} question={question} />;
     });
 
-    if (this.props.currentUser === null) {
-      return <div />;
-    }
-
     return (
       <div className="QuestionIndex">
-        <div className="QuestionIndexMain">
-          <h3 className="QuestionIndexMainHeader">QuestionIndexMainHeader</h3>
-          <div className="QuestionIndexFormNew">
-            <div className="QuestionIndexUserHeader">
-              <a className="QuestionIndexUserName">
-                {this.props.currentUser.username}
-              </a>
-            </div>
-            <NewQuestion
-              createQuestion={this.props.createQuestion}
-              currentUser={this.props.currentUser}
-            />
+        <div className="QuestionIndexFormNew">
+          <div className="QuestionIndexUserHeader">
+            <a className="QuestionIndexUserName">
+              {this.props.currentUser.username}
+            </a>
           </div>
-
-          <ul>{questions}</ul>
+          <NewQuestion
+            createQuestion={this.props.createQuestion}
+            currentUser={this.props.currentUser}
+          />
         </div>
+
+        <ul>{questions}</ul>
       </div>
     );
   }
