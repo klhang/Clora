@@ -19,7 +19,7 @@ export const removeQuestion = question => ({
   question
 });
 
-export const fetchAllQuestions = () => dispatch =>
+export const fetchQuestions = () => dispatch =>
   APIUtil.fetchAllQuestions().then(questions =>
     dispatch(receiveAllQuestions(questions))
   );
