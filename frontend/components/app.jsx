@@ -1,6 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Route, Redirect, Switch, HashRouter, IndexRoute } from "react-router";
 
 import GreetingContainer from "./greeting/greeting_container";
 import SessionFormContainer from "./session_form/session_form_container";
@@ -26,7 +27,7 @@ const App = () => (
         path="/questions/:questionId"
         component={QuestionShowContainer}
       />
-      <Route exact path="/questions" component={QuestionIndexContainer} />
+      <Route component={QuestionIndexContainer} />
     </Switch>
   </div>
 );
