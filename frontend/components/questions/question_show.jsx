@@ -1,14 +1,18 @@
 import React from "react";
+import { Link, hashHistory } from "react-router";
 import merge from "lodash/merge";
+import AnswerIndexContainer from "../answers/answer_index_container.jsx";
+import NewAnswer from "../answers/new_answer";
 
 class QuestionShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickOnEdit: false,
-      question: this.props.question
+      editQuestionClicked: false,
+      question: this.props.question,
+      answerClicked: false
     };
-    this.handleQsEdit = this.handleQsEdit.bind(this);
+    this.submitQuestionEdits = this.submitQuestionEdits.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +27,14 @@ class QuestionShow extends React.Component {
   deleteQuestion() {
     return e => {
       this.props.deleteQuestion(this.props.question.id);
+      hashHistory.push("/");
     };
   }
-  handleQsEdit(e) {
+
+  submitQuestionEdits(e) {
     e.preventDefault();
     this.props.updateQuestion(this.state.question);
-    let newState = merge({}, this.state, { clickOnEdit: false });
+    let newState = merge({}, this.state, { editQuestionClicked: false });
     this.setState(newState);
   }
 
@@ -41,21 +47,42 @@ class QuestionShow extends React.Component {
     };
   }
 
-  updateEditQuestionClicked(boolean) {
+  updateAnswerClicked(boolean) {
     return e => {
-      let newState = merge({}, this.state, { clickOnEdit: boolean });
+      let newState = merge({}, this.state, { answerClicked: boolean });
       this.setState(newState);
     };
   }
 
-  showQuestion() {
+  updateEditQuestionClicked(boolean) {
+    return e => {
+      let newState = merge({}, this.state, { editQuestionClicked: boolean });
+      this.setState(newState);
+    };
+  }
+
+  questionBody() {
     const { question } = this.props;
 
-    if (this.state.clickOnEdit === false) {
+    if (this.state.editQuestionClicked === false) {
       return (
         <div>
-          <h1>{question.title}</h1>
-          <p className="QuestionShowDetails">{question.description}</p>
+          <h1>{question.question}</h1>
+          <p className="QuestionShowDetails">{question.details}</p>
+          <div className="QuestionShowButtonLine">
+            <button
+              className="NewAnswerButton"
+              onClick={this.updateAnswerClicked(true)}
+            >
+              Answer
+            </button>
+            <div className="DotsContainer">
+              <a className="DotsLink" onClick={this.updateDotsClicked()}>
+                <span className="Dots">...</span>
+              </a>
+              <div>{this.dotsDropDown()}</div>
+            </div>
+          </div>
         </div>
       );
     } else {
@@ -64,14 +91,14 @@ class QuestionShow extends React.Component {
           <input
             className="EditQuestionTitle"
             type="text"
-            value={this.state.question.title}
+            value={this.state.question.question}
             onChange={this.update("question")}
           />
           <textarea
             className="EditQuestionDetails"
-            value={this.state.question.description}
-            onChange={this.update("description")}
-            placeholder="Enter question description.."
+            value={this.state.question.details}
+            onChange={this.update("details")}
+            placeholder="Enter question details.."
           />
           <div className="EditQuestionButtonBar">
             <button
@@ -80,7 +107,10 @@ class QuestionShow extends React.Component {
             >
               Cancel
             </button>
-            <button className="EditQuestionSubmit" onClick={this.handleQsEdit}>
+            <button
+              className="EditQuestionSubmit"
+              onClick={this.submitQuestionEdits}
+            >
               Update
             </button>
           </div>
@@ -98,7 +128,20 @@ class QuestionShow extends React.Component {
 
     return (
       <div className="QuestionShowContainer">
-        <div className="QuestionShowQuestion">{this.showQuestion()}</div>
+        <div className="QuestionShow">
+          <div className="QuestionShowQuestion">
+            {this.questionBody()}
+            <NewAnswer
+              questionId={question.id}
+              createAnswer={this.props.createAnswer}
+              currentUser={this.props.currentUser}
+              answerClicked={this.state.answerClicked}
+              closeDropdown={this.updateAnswerClicked(false)}
+            />
+          </div>
+          <AnswerIndexContainer questionId={question.id} />
+        </div>
+        <div />
       </div>
     );
   }
