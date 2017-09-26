@@ -19,7 +19,6 @@ class NewAnswer extends React.Component {
     this.props.createAnswer(this.state.answer).then(() => {
       let newState = merge({}, this.state, { answer: { text: "" } });
       this.setState(newState);
-      // this.props.closeDropdown();
     });
   }
 
@@ -38,7 +37,7 @@ class NewAnswer extends React.Component {
         <div className="NewAnswer">
           <a className="NewAnswerUserName">{this.props.currentUser.username}</a>
           <textarea
-            className="NewAnswerBody"
+            className="NewAnswerText"
             placeholder="Please create your answer here"
             onChange={this.updateAnswerField()}
             value={this.state.answer.text}
