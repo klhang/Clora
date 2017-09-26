@@ -77,12 +77,6 @@ class QuestionShow extends React.Component {
             >
               Answer
             </button>
-            <div className="DotsContainer">
-              <a className="DotsLink" onClick={this.updateDotsClicked()}>
-                <span className="Dots">...</span>
-              </a>
-              <div>{this.dotsDropDown()}</div>
-            </div>
           </div>
         </div>
       );
@@ -137,7 +131,6 @@ class QuestionShow extends React.Component {
               createAnswer={this.props.createAnswer}
               currentUser={this.props.currentUser}
               answerClicked={this.state.answerClicked}
-              closeDropdown={this.updateAnswerClicked(false)}
             />
           </div>
           <AnswerIndexContainer questionId={question.id} />

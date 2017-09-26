@@ -8,7 +8,7 @@ class AnswerIndexItem extends React.Component {
   }
 
   render() {
-    console.log("answer show", this.props);
+    // console.log("answer show", this.props);
     const answer = this.props.answer;
 
     if (!answer) {

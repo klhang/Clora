@@ -22,8 +22,7 @@ class QuestionIndexItem extends React.Component {
   }
 
   render() {
-    debugger;
-    console.log("question index item", this.props);
+    // console.log("question index item", this.props);
     const question = this.props.question;
 
     let answer = question.answers[this.state.index];

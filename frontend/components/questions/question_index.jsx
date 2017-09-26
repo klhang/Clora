@@ -10,7 +10,7 @@ class QuestionIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchQuestions();
-    // this.props.fetchAnswers();
+    this.props.fetchAnswers();
   }
 
   render() {
