@@ -1,4 +1,5 @@
 import React from "react";
+import AnswerShow from "./answer_show";
 import AnswerShowContainer from "./answer_show_container";
 
 class AnswerIndex extends React.Component {

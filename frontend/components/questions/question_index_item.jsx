@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, hashHistory } from "react-router";
+import { Link } from "react-router-dom";
 import AnswerShowContainer from "../answers/answer_show_container";
 
 class QuestionIndexItem extends React.Component {
@@ -22,6 +22,8 @@ class QuestionIndexItem extends React.Component {
   }
 
   render() {
+    debugger;
+    console.log("question index item", this.props);
     const question = this.props.question;
 
     let answer = question.answers[this.state.index];
@@ -30,7 +32,7 @@ class QuestionIndexItem extends React.Component {
       return (
         <li className="QuestionItem">
           <Link to={`/questions/${question.id}`}>
-            <h2 className="QuestionItemQuestion">{question.question}</h2>
+            <h2 className="QuestionItemQuestion">{question.title}</h2>
           </Link>
         </li>
       );
@@ -39,7 +41,7 @@ class QuestionIndexItem extends React.Component {
     return (
       <li className="QuestionItem">
         <Link to={`/questions/${question.id}`}>
-          <h2 className="QuestionItemQuestion">{question.question}</h2>
+          <h2 className="QuestionItemQuestion">{question.title}</h2>
         </Link>
         <ul>
           <AnswerShowContainer answerId={answer.id} />

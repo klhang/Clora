@@ -1,6 +1,6 @@
 import React from "react";
 import merge from "lodash/merge";
-import { Link, hashHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 class AnswerIndexItem extends React.Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class AnswerIndexItem extends React.Component {
   }
 
   render() {
+    console.log("answer show", this.props);
     const answer = this.props.answer;
 
     if (!answer) {

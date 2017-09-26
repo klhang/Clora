@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, hashHistory } from "react-router";
+import { hashHistory } from "react-router";
+import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 import AnswerIndexContainer from "../answers/answer_index_container.jsx";
 import NewAnswer from "../answers/new_answer";
@@ -67,8 +68,8 @@ class QuestionShow extends React.Component {
     if (this.state.editQuestionClicked === false) {
       return (
         <div>
-          <h1>{question.question}</h1>
-          <p className="QuestionShowDetails">{question.details}</p>
+          <h1>{question.title}</h1>
+          <p className="QuestionShowDescription">{question.description}</p>
           <div className="QuestionShowButtonLine">
             <button
               className="NewAnswerButton"
@@ -91,14 +92,14 @@ class QuestionShow extends React.Component {
           <input
             className="EditQuestionTitle"
             type="text"
-            value={this.state.question.question}
+            value={this.state.question.title}
             onChange={this.update("question")}
           />
           <textarea
-            className="EditQuestionDetails"
-            value={this.state.question.details}
-            onChange={this.update("details")}
-            placeholder="Enter question details.."
+            className="EditQuestionDescription"
+            value={this.state.question.description}
+            onChange={this.update("description")}
+            placeholder="Enter question description.."
           />
           <div className="EditQuestionButtonBar">
             <button

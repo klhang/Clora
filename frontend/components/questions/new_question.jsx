@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { hashHistory } from "react-router";
 import merge from "lodash/merge";
 
 class NewQuestion extends React.Component {
@@ -37,6 +39,7 @@ class NewQuestion extends React.Component {
         newQuestionClicked: false
       });
       this.setState(newState);
+      hashHistory.push(`/questions/${newQuestion.question.id}`);
     });
   }
 
@@ -76,7 +79,7 @@ class NewQuestion extends React.Component {
                 className="NewQuestionButton"
                 onClick={this.submitNewQuestion}
               >
-                Ask Question
+                Create A Question
               </button>
             </div>
           </div>
