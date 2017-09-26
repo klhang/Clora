@@ -10,7 +10,7 @@ import { createAnswer } from "../../actions/answer_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    question: state.questions[ownProps.params.questionId],
+    question: state.questions[ownProps.match.params.questionId],
     currentUser: state.session.currentUser
   };
 };
