@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 import AnswerIndexContainer from "../answers/answer_index_container.jsx";
 import NewAnswer from "../answers/new_answer";
+import { ConditionalComponent } from "../../util/route_util";
 // import { hashHistory } from "react-router";
 
 class QuestionShow extends React.Component {
@@ -71,12 +72,17 @@ class QuestionShow extends React.Component {
           <h1>{question.title}</h1>
           <p className="QuestionShowDescription">{question.description}</p>
           <div className="QuestionShowButtonLine">
-            <button
-              className="NewAnswerButton"
-              onClick={this.updateAnswerClicked(true)}
-            >
-              Answer
-            </button>
+            <ConditionalComponent
+              trueComponent={() => (
+                <button
+                  className="NewAnswerButton"
+                  onClick={this.updateAnswerClicked(true)}
+                >
+                  Answer
+                </button>
+              )}
+              falseComponent={() => <div />}
+            />
           </div>
         </div>
       );
@@ -126,11 +132,16 @@ class QuestionShow extends React.Component {
         <div className="QuestionShow">
           <div className="QuestionShowQuestion">
             {this.questionBody()}
-            <NewAnswer
-              questionId={question.id}
-              createAnswer={this.props.createAnswer}
-              currentUser={this.props.currentUser}
-              answerClicked={this.state.answerClicked}
+            <ConditionalComponent
+              trueComponent={() => (
+                <NewAnswer
+                  questionId={question.id}
+                  createAnswer={this.props.createAnswer}
+                  currentUser={this.props.currentUser}
+                  answerClicked={this.state.answerClicked}
+                />
+              )}
+              falseComponent={() => <div />}
             />
           </div>
           <AnswerIndexContainer questionId={question.id} />

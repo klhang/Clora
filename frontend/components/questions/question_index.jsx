@@ -2,6 +2,7 @@ import React from "react";
 import QuestionIndexItem from "./question_index_item";
 import NewQuestion from "./new_question";
 import merge from "lodash/merge";
+import { ConditionalComponent } from "../../util/route_util";
 
 class QuestionIndex extends React.Component {
   constructor(props) {
@@ -18,23 +19,28 @@ class QuestionIndex extends React.Component {
       return <QuestionIndexItem key={question.id} question={question} />;
     });
 
-    if (this.props.currentUser === null) {
-      return <div />;
-    }
+    // if (this.props.currentUser === null) {
+    //   return <div />;
+    // }
 
     return (
       <div className="QuestionIndex">
-        <div className="QuestionIndexFormNew">
-          <div className="QuestionIndexUserHeader">
-            <a className="QuestionIndexUserName">
-              {this.props.currentUser.username}
-            </a>
-          </div>
-          <NewQuestion
-            createQuestion={this.props.createQuestion}
-            currentUser={this.props.currentUser}
-          />
-        </div>
+        <ConditionalComponent
+          trueComponent={() => (
+            <div className="QuestionIndexFormNew">
+              <div className="QuestionIndexUserHeader">
+                <a className="QuestionIndexUserName">
+                  {this.props.currentUser.username}
+                </a>
+              </div>
+              <NewQuestion
+                createQuestion={this.props.createQuestion}
+                currentUser={this.props.currentUser}
+              />
+            </div>
+          )}
+          falseComponent={() => <div />}
+        />
 
         <ul>{questions}</ul>
       </div>

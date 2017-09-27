@@ -7,6 +7,7 @@ import {
 } from "../../actions/question_actions";
 import QuestionShow from "./question_show";
 import { createAnswer } from "../../actions/answer_actions";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -23,4 +24,6 @@ const mapDispatchToProps = dispatch => ({
   createAnswer: answer => dispatch(createAnswer(answer))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(QuestionShow);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(QuestionShow)
+);

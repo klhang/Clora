@@ -18,6 +18,14 @@ const Protected = ({ component: Component, path, loggedIn }) => (
   />
 );
 
+const Conditional = ({
+  trueComponent: TrueComponent,
+  falseComponent: FalseComponent,
+  loggedIn
+}) => {
+  return loggedIn ? <TrueComponent /> : <FalseComponent />;
+};
+
 const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.currentUser)
 });
@@ -26,4 +34,8 @@ export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
 export const ProtectedRoute = withRouter(
   connect(mapStateToProps, null)(Protected)
+);
+
+export const ConditionalComponent = withRouter(
+  connect(mapStateToProps)(Conditional)
 );
