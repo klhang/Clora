@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { hashHistory } from "react-router";
 import merge from "lodash/merge";
+// import { hashHistory } from "react-router";
 
 class NewQuestion extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class NewQuestion extends React.Component {
         newQuestionClicked: false
       });
       this.setState(newState);
-      hashHistory.push(`/questions/${newQuestion.question.id}`);
+      // hashHistory.push(`/questions/${newQuestion.question.id}`);
     });
   }
 

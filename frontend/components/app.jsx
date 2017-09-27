@@ -19,16 +19,19 @@ const App = () => (
       <GreetingContainer />
     </header>
 
-    <Switch>
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
-      <Route
-        exact
-        path="/questions/:questionId"
-        component={QuestionShowContainer}
-      />
-      <Route component={QuestionIndexContainer} />
-    </Switch>
+    <AuthRoute path="/login" component={SessionFormContainer} />
+    <AuthRoute path="/signup" component={SessionFormContainer} />
+
+    <div id="main-page">
+      <Switch>
+        <Route
+          exact
+          path="/questions/:questionId"
+          component={QuestionShowContainer}
+        />
+        <Route component={QuestionIndexContainer} />
+      </Switch>
+    </div>
   </div>
 );
 

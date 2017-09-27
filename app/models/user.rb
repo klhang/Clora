@@ -17,7 +17,7 @@ class User < ApplicationRecord
     primary_key: :id
 
   after_initialize :ensure_session_token
-  #  before_validation :generate_unique_session_token
+  before_validation :generate_unique_session_token
 
 
   def self.find_by_credentials(username, password)

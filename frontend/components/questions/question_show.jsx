@@ -1,9 +1,9 @@
 import React from "react";
-import { hashHistory } from "react-router";
 import { Link } from "react-router-dom";
 import merge from "lodash/merge";
 import AnswerIndexContainer from "../answers/answer_index_container.jsx";
 import NewAnswer from "../answers/new_answer";
+// import { hashHistory } from "react-router";
 
 class QuestionShow extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class QuestionShow extends React.Component {
   deleteQuestion() {
     return e => {
       this.props.deleteQuestion(this.props.question.id);
-      hashHistory.push("/");
+      // hashHistory.push("/");
     };
   }
 
@@ -115,7 +115,6 @@ class QuestionShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { question } = this.props;
 
     if (!question) {
