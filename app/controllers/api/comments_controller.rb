@@ -1,32 +1,38 @@
 class Api::CommentsController < ApplicationController
-  protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?
+  def index
+    @comments = Comment.all
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
+  def create
+    @comment = Comment.new(comment_params)
+
+    if @comment.save
+      render :show
+    else
+      render json: @comment.errors.full_messages, status: 422
+    end
+
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update(comment_params)
+      render :show
+    else
+      render json: @comment.errors.full_messages, status: 422
+    end
+
+  end
 
   private
 
-  def current_user
-    return nil unless session[:session_token]
-    @current_user ||= User.find_by(session_token: session[:session_token])
-  end
-
-  def logged_in?
-    !!current_user
-  end
-
-  def login(user)
-    user.reset_session_token!
-    session[:session_token] = user.session_token
-    @current_user = user
-  end
-
-  def logout
-    current_user.reset_session_token!
-    session[:session_token] = nil
-    @current_user = nil
-  end
-
-  def require_logged_in
-    render json: {base: ['invalid credentials']}, status: 401 if !current_user
+  def comment_params
+    params.require(:comment).permit(:text, :answer_id, :author_id)
   end
 
 end
