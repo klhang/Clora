@@ -4,7 +4,6 @@ import merge from "lodash/merge";
 import AnswerIndexContainer from "../answers/answer_index_container.jsx";
 import NewAnswer from "../answers/new_answer";
 import { ConditionalComponent } from "../../util/route_util";
-// import { hashHistory } from "react-router";
 
 class QuestionShow extends React.Component {
   constructor(props) {
