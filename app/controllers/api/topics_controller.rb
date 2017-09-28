@@ -37,10 +37,7 @@ class Api::TopicsController < ApplicationController
     else
       render json: @topic.errors.full_messages, status: 422
     end
-
   end
-
-
 
   private
 

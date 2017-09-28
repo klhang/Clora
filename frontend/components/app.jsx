@@ -13,6 +13,7 @@ import {
 
 import QuestionIndexContainer from "./questions/question_index_container";
 import QuestionShowContainer from "./questions/question_show_container";
+import EditTopicsContainer from "./topics/edit_topics_container";
 
 const App = () => (
   <div>
@@ -37,6 +38,13 @@ const App = () => (
           />
         )}
       />
+
+      <Route
+        exact
+        path="/topics/topic_id/questions"
+        component={EditTopicsContainer}
+      />
+
       <Switch>
         <Route
           exact
