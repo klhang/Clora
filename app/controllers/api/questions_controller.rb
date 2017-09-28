@@ -35,6 +35,13 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def searchByTopic
+    @topic = Topic.find(params[:topic_id])
+    @questions = @topic.questions
+
+    render :index
+  end
+
   private
 
   def question_params

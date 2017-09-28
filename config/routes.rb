@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:new, :edit]
     resources :topics, except: [:new, :edit]
     resources :question_topic_links, except: [:new, :edit]
+    get "topics/:topic_id/questions", to: "questions#searchByTopic"
   end
 
   root "static_pages#root"
