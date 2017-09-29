@@ -1,16 +1,16 @@
 # Clora
-Checking
+
 Clora is a full-stack web application inspired by Quora.com, a site where users can post questions and answer any question posted. On the back end, it uses Ruby on Rails and a PostgreSQL database, and on the front end, React with Redux data architecture.
 
-Database
+## Database
 
 The database has the following tables: users, questions, answers, comments, topics, and question_topic_links. The relationships between users and questions, answers, and comments are straight forward, where a User has_many questions and a Question belongs_to a User and so on. The same goes for questions having many answers and answers having many comments.The relationship between questions and topics is more complex. Since questions can be tagged with multiple topics and topics can be tagged by multiple topics, the database required an intermediary table to handle this relationship. I named this table question_topic_links, and configured it so that each item in the table belongs_to both a question and a topic.
 
-User Authentication
+## User Authentication
 
 I set up secure, password-protected user authentication by leveraging a password hashing function called BCrypt, loaded as a Ruby gem. BCrypt makes it so a user's password does not have to be stored directly in the database.
 
-Routes
+## Routes
 
 I set up the back end routes under a namespace 'api' to distinguish them from the front end routes, which I create with React Router. The API routes are configured so that they respond only in the JSON format.
 
@@ -20,7 +20,7 @@ namespace :api, defaults: {format: :json} do
 
 This way, when AJAX requests are made on the front end to get application data, the functions receive the proper data that they can handle.
 
-Views
+## Views
 
 By declaring the format as JSON on the routes, Rails automatically looks for a .json view file instead of a .html.erb view file. I make use of the jBuilder gem to more easily extract and convert the data from the database into JSON. Here is an example of the question index view file:
 
@@ -33,7 +33,7 @@ end
 ```
 
 
-Redux Data Architecture
+## Redux Data Architecture
 
 The front end is structured into React components that receive data through the Redux data architecture.
 
