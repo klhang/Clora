@@ -1,5 +1,6 @@
 import React from "react";
 import merge from "lodash/merge";
+import { withRouter } from "react-router-dom";
 
 class EditTopics extends React.Component {
   constructor(props) {
@@ -10,22 +11,32 @@ class EditTopics extends React.Component {
     this.props.fetchTopics();
   }
 
+  handleClick(topicId) {
+    return () => {
+      this.props
+        .fetchTopicQuestions(topicId)
+        .then(() => this.props.history.push("/questions"));
+    };
+  }
+
+  handleClickAllTopics() {
+    return () => {
+      this.props
+        .fetchQuestions()
+        .then(() => this.props.history.push("/questions"));
+    };
+  }
   render() {
     const topics = this.props.topics.map(topic => {
-      return (
-        <button onClick={this.props.fetchTopicQuestions.bind(this, topic.id)}>
-          {topic.name}
-        </button>
-      );
+      return <button onClick={this.handleClick(topic.id)}>{topic.name}</button>;
     });
 
     return (
       <div className="Topics">
-        <h2>Feeds</h2>
+        <h1>Feeds</h1>
+
         <ul>
-          <button onClick={this.props.fetchQuestions.bind(this)}>
-            All Topics
-          </button>
+          <button onClick={this.handleClickAllTopics()}>All Topics</button>
           {topics}
         </ul>
       </div>
@@ -33,4 +44,4 @@ class EditTopics extends React.Component {
   }
 }
 
-export default EditTopics;
+export default withRouter(EditTopics);

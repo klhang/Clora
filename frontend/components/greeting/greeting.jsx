@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import merge from "lodash/merge";
+import { ConditionalComponent } from "../../util/route_util";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Greeting extends React.Component {
     this.state = {
       text: ""
     };
+    this.update = this.update.bind(this);
   }
 
   sessionLinks() {
