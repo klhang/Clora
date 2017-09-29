@@ -17,7 +17,9 @@ class Greeting extends React.Component {
         <Link className="u-pull-right" to="/login">
           Login
         </Link>
-        &nbsp;or&nbsp;
+        <span className="u-pull-right" to="/login">
+          {""}or{""}
+        </span>
         <Link className="u-pull-right" to="/signup">
           Sign up!
         </Link>
@@ -27,7 +29,7 @@ class Greeting extends React.Component {
 
   personalGreeting(currentUser, logout) {
     return (
-      <hgroup className="one-half column right-align-text">
+      <hgroup>
         <h2 className="header-name">Hi, {currentUser.username}!</h2>{" "}
         <button className="header-button" onClick={logout}>
           Log Out
@@ -74,7 +76,7 @@ class Greeting extends React.Component {
       </form>
     );
     return (
-      <div>
+      <div className="one-half column right-align-text">
         {search_input}
         {currentUser ? (
           this.personalGreeting(currentUser, this.logoutAndRedirect)

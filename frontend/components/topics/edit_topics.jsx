@@ -21,8 +21,7 @@ class EditTopics extends React.Component {
 
     return (
       <div className="Topics">
-        <h1>Feeds</h1>
-
+        <h2>Feeds</h2>
         <ul>
           <button onClick={this.props.fetchQuestions.bind(this)}>
             All Topics

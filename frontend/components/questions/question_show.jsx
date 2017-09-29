@@ -68,7 +68,7 @@ class QuestionShow extends React.Component {
     if (this.state.editQuestionClicked === false) {
       return (
         <div>
-          <h1>{question.title}</h1>
+          <h2>{question.title}</h2>
           <p className="QuestionShowDescription">{question.description}</p>
 
           <div className="QuestionShowButtonLine">

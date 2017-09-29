@@ -79,7 +79,24 @@ For the record, I started working at Google at 33. And didn’t even feel close 
 
   },
   {
-    author_id: users[3].id,
+    author_id: users[2].id,
+    text: "Actually, it all depends.
+
+If you just want to visit some modern cities in china, 3 weeks is enough. You can choose to go Beijing, shanghai, Shenzhen and Hong Kong. In some ways, these four cities cover the political center and economic center of china and can be the symbol of modern china.
+
+Similarly, if you just want to know some traditional customs of china, you can also choose several cities, such as Xishuangbanna, Dali, Dunhuang, as your destination. And traveling these cities won’t take you long time.
+
+If you want to have a comprehensive understanding of Chinese culture, you should stay in china for at least 2 years, I suppose. On the one hand, china is a big country and every province, even those adjacent provinces, has their unique cultural customs which constitute the whole Chinese culture. On the other hand, in order to have a deep understanding of the culture in one country, you need to live there to experience the culture by yourself and communicate with local people.",
+    question_id: questions[0].id
+
+  },
+  {
+    author_id: users[5].id,
+    text: "As Loooooong as you can!",
+    question_id: questions[0].id
+  },
+  {
+    author_id: users[4].id,
     text: "Personally, I think a full 365 days would give you a good handle on what China has to offer. I've been here around 3 years and the list of things I want to see is continually growing, even as I check things off. Ironically, I’ve seen more of China than most of my Chinese friends have!
 
 If your question is really “how many vacation days should I request for my trip to China?” then I’d suggest a minimum of two weeks if you don’t think you’ll have an opportunity to come back.",
@@ -167,17 +184,17 @@ My host said kindly, 'A lot of Koreans don't like it either.' Now he tells me!",
 comments = Comment.create([
   {
     author_id: users[5].id,
-    answer_id: answers[5].id,
+    answer_id: answers[6].id,
     text: "Wow, that's very helpful!"
   },
   {
     author_id: users[2].id,
-    answer_id: answers[6].id,
+    answer_id: answers[7].id,
     text: "Thank you for writing this. I have encountered this in a Psych article in one of my books. I came to realize that people around me are like this and I thought something was wrong with me the whole time. Turned out, they are the ones who got issues."
   },
   {
     author_id: users[5].id,
-    answer_id: answers[8].id,
+    answer_id: answers[10].id,
     text: "That's interesting, I would propably try that if get a chance : )"
   }
 

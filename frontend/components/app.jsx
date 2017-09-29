@@ -19,7 +19,7 @@ const App = () => (
   <div className="container">
     <header className="row">
       <Link to="/" className="one-half column">
-        <h1>Come Ask on Clora</h1>
+        <h1>Ask on Clora</h1>
       </Link>
       <GreetingContainer />
     </header>

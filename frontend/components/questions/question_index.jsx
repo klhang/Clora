@@ -39,7 +39,8 @@ class QuestionIndex extends React.Component {
           )}
           falseComponent={() => <div />}
         />
-
+        <br />
+        <h2>Suggestions For You:</h2>
         <ul>{questions}</ul>
       </div>
     );

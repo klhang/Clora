@@ -43,7 +43,7 @@ class AnswerIndexItem extends React.Component {
       <li className="Answer">
         <div>
           <div className="AnswerAuthorHeader">
-            <a>{answer.author.username}</a>
+            <h3>{answer.author.username}:</h3>
           </div>
           <div className="AnswerText">{answer.text}</div>
 
