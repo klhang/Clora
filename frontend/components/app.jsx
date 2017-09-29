@@ -14,7 +14,7 @@ import {
 import QuestionIndexContainer from "./questions/question_index_container";
 import QuestionShowContainer from "./questions/question_show_container";
 import EditTopicsContainer from "./topics/edit_topics_container";
-import SearchQuestionsByNameContainer from "./search/search_container";
+
 const App = () => (
   <div className="container">
     <header className="row">
