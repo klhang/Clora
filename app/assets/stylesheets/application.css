@@ -31,11 +31,11 @@
   min-height: 100%;
 }*/
 
-a {
+/*a {
   color: #006666;
   text-decoration: none;
   font-size: 25px;
-}
+}*/
 
 body {
   font-family: "Abel", sans-serif;
@@ -45,7 +45,10 @@ body {
   background-attachment: fixed;
 }
 
-header {
+.right-align-text {
+  text-align: right;
+}
+/*header {
   margin-left: 40%;
 }
 
@@ -56,10 +59,10 @@ h5 {
 
 .header-name {
   margin: 7px 0 0 0;
-}
+}*/
 
 /*login-form*/
-.login-form-container {
+/*.login-form-container {
   display: flex;
   justify-content: center;
   margin-top: 100px;
@@ -84,4 +87,4 @@ h5 {
   justify-content: center;
   text-decoration: none;
   color: black;
-}
+}*/

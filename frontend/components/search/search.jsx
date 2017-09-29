@@ -1,25 +1,32 @@
 import React from "react";
-import merge from "lodash/merge";
 
-class Search extends React.Component {
+import QuestionIndexItem from "../questions/question_index_item";
+
+class SearchList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchField: "" };
   }
 
-  componentDidMount() {
-    if (!this.props.questions) {
-      this.props.fetchQuestions();
-    }
-  }
+  render() {
+    return (
+      <div>
+        <h1>
+          Search Results: Found {this.props.questions.length} Question(s).
+        </h1>
 
-  updateSearchField() {
-    return e => {
-      let newState = merge({}, this.state, { searchField: e.target.value });
-      this.setState(newState);
-    };
+        <ul>
+          this.props.questions.map(question =>
+          {
+            <QuestionIndexItem
+              questionId={question.id}
+              currentUser={this.props.currentUser}
+              createAnswer={this.props.createAnswer}
+            />
+          });
+        </ul>
+      </div>
+    );
   }
-
-  render() {}
 }
-export default Search;
+
+export default SearchList;

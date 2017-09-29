@@ -70,6 +70,7 @@ class QuestionShow extends React.Component {
         <div>
           <h1>{question.title}</h1>
           <p className="QuestionShowDescription">{question.description}</p>
+
           <div className="QuestionShowButtonLine">
             <ConditionalComponent
               trueComponent={() => (
@@ -100,20 +101,25 @@ class QuestionShow extends React.Component {
             onChange={this.update("description")}
             placeholder="Enter question description.."
           />
-          <div className="EditQuestionButtonBar">
-            <button
-              className="CancelButton"
-              onClick={this.updateEditQuestionClicked(false)}
-            >
-              Cancel
-            </button>
-            <button
-              className="EditQuestionSubmit"
-              onClick={this.submitQuestionEdits}
-            >
-              Update
-            </button>
-          </div>
+
+          {question.myQuestion ? (
+            <div className="EditQuestionButtonBar">
+              <button
+                className="CancelButton"
+                onClick={this.updateEditQuestionClicked(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="EditQuestionSubmit"
+                onClick={this.submitQuestionEdits}
+              >
+                Update
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       );
     }
@@ -131,6 +137,16 @@ class QuestionShow extends React.Component {
         <div className="QuestionShow">
           <div className="QuestionShowQuestion">
             {this.questionBody()}
+            {question.myQuestion ? (
+              <button
+                className="CancelButton"
+                onClick={this.updateEditQuestionClicked(true)}
+              >
+                Edit
+              </button>
+            ) : (
+              ""
+            )}
             <ConditionalComponent
               trueComponent={() => (
                 <NewAnswer

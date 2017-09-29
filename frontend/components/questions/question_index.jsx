@@ -10,7 +10,9 @@ class QuestionIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchQuestions();
+    if (!this.props.questions.length) {
+      this.props.fetchQuestions();
+    }
     this.props.fetchAnswers();
   }
 
@@ -18,10 +20,6 @@ class QuestionIndex extends React.Component {
     const questions = this.props.questions.map(question => {
       return <QuestionIndexItem key={question.id} question={question} />;
     });
-
-    // if (this.props.currentUser === null) {
-    //   return <div />;
-    // }
 
     return (
       <div className="QuestionIndex">

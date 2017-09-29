@@ -14,11 +14,11 @@ import {
 import QuestionIndexContainer from "./questions/question_index_container";
 import QuestionShowContainer from "./questions/question_show_container";
 import EditTopicsContainer from "./topics/edit_topics_container";
-
+import SearchQuestionsByNameContainer from "./search/search_container";
 const App = () => (
-  <div>
-    <header>
-      <Link to="/" className="header-link">
+  <div className="container">
+    <header className="row">
+      <Link to="/" className="one-half column">
         <h1>Come Ask on Clora</h1>
       </Link>
       <GreetingContainer />
@@ -27,32 +27,40 @@ const App = () => (
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
 
-    <div id="main-page">
-      <Route
-        exact
-        path="/"
-        component={() => (
-          <ConditionalComponent
-            trueComponent={QuestionIndexContainer}
-            falseComponent={() => <div />}
-          />
-        )}
-      />
+    <div className="row">
+      <div className="three columns">
+        <Route
+          path="/"
+          component={() => (
+            <ConditionalComponent
+              trueComponent={EditTopicsContainer}
+              falseComponent={() => <div />}
+            />
+          )}
+        />
+      </div>
 
-      <Route
-        exact
-        path="/topics/topic_id/questions"
-        component={EditTopicsContainer}
-      />
-
-      <Switch>
+      <div className="nine columns">
         <Route
           exact
-          path="/questions/:questionId"
-          component={QuestionShowContainer}
+          path="/"
+          component={() => (
+            <ConditionalComponent
+              trueComponent={QuestionIndexContainer}
+              falseComponent={() => <div />}
+            />
+          )}
         />
-        <Route path="/questions" component={QuestionIndexContainer} />
-      </Switch>
+
+        <Switch>
+          <Route
+            exact
+            path="/questions/:questionId"
+            component={QuestionShowContainer}
+          />
+          <Route path="/questions" component={QuestionIndexContainer} />
+        </Switch>
+      </div>
     </div>
   </div>
 );

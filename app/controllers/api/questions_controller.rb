@@ -42,6 +42,12 @@ class Api::QuestionsController < ApplicationController
     render :index
   end
 
+  def searchQuestionsByName
+    @questions = Question.where('lower(title) LIKE lower(?)', "%#{params[:title]}%") || []
+
+    render :index
+  end
+
   private
 
   def question_params

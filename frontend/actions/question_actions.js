@@ -43,3 +43,13 @@ export const deleteQuestion = id => dispatch =>
   APIUtil.deleteQuestion(id).then(question =>
     dispatch(removeQuestion(question))
   );
+
+export const fetchTopicQuestions = topicId => dispatch =>
+  APIUtil.fetchTopicQuestions(topicId).then(questions =>
+    dispatch(receiveAllQuestions(questions))
+  );
+
+export const fetchSearchQuestion = name => dispatch =>
+  APIUtil.fetchSearchQuestion(name).then(questions =>
+    dispatch(receiveAllQuestions(questions))
+  );

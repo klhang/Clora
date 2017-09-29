@@ -34,3 +34,18 @@ export const deleteQuestion = id => {
     url: `/api/questions/${id}`
   });
 };
+
+export const fetchTopicQuestions = topicId => {
+  return $.ajax({
+    type: "GET",
+    url: `/api/topics/${topicId}/questions`
+  });
+};
+
+export const fetchSearchQuestion = title => {
+  return $.ajax({
+    type: "GET",
+    url: `/api/search`,
+    data: { title }
+  });
+};
