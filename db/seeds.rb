@@ -188,7 +188,7 @@ comments = Comment.create([
     text: "Wow, that's very helpful!"
   },
   {
-    author_id: users[2].id,
+    author_id: users[1].id,
     answer_id: answers[7].id,
     text: "Thank you for writing this. I have encountered this in a Psych article in one of my books. I came to realize that people around me are like this and I thought something was wrong with me the whole time. Turned out, they are the ones who got issues."
   },
