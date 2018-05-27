@@ -17,6 +17,7 @@ import EditTopicsContainer from "./topics/edit_topics_container";
 
 const App = () => (
   <div className="container">
+    <br class="clear" />
     <header className="row">
       <Link to="/" className="one-half column">
         <h1>Ask on Clora</h1>

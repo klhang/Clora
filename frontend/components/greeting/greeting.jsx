@@ -15,23 +15,30 @@ class Greeting extends React.Component {
 
   sessionLinks() {
     return (
-      <nav className="one-half column right-align-text">
-        <Link className="u-pull-right" to="/login">
-          Login
+      <div>
+        <Link className="uone-half column" to="/login">
+          Try
         </Link>
-        <span className="u-pull-right" to="/login">
-          {""}or{""}
-        </span>
-        <Link className="u-pull-right" to="/signup">
-          Sign up!
-        </Link>
-      </nav>
+      </div>
     );
   }
 
   personalGreeting(currentUser, logout) {
+    const search_input = (
+      <form onSubmit={this.handleSearch.bind(this)}>
+        <input
+          onChange={this.update("text")}
+          value={this.state.text}
+          type="text"
+          placeholder="Search Questions"
+        />
+        <button>Search</button>
+      </form>
+    );
+
     return (
       <hgroup>
+        {search_input}
         <h2 className="header-name">Hi, {currentUser.username}!</h2>{" "}
         <button className="header-button" onClick={logout}>
           Log Out
@@ -66,20 +73,9 @@ class Greeting extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-    const search_input = (
-      <form onSubmit={this.handleSearch.bind(this)}>
-        <input
-          onChange={this.update("text")}
-          value={this.state.text}
-          type="text"
-          placeholder="Search Questions"
-        />
-        <button>Search</button>
-      </form>
-    );
     return (
-      <div className="one-half column right-align-text">
-        {search_input}
+      <div className="one-half column">
+
         {currentUser ? (
           this.personalGreeting(currentUser, this.logoutAndRedirect)
         ) : (
@@ -91,3 +87,15 @@ class Greeting extends React.Component {
 }
 
 export default withRouter(Greeting);
+
+// const search_input = (
+//   <form onSubmit={this.handleSearch.bind(this)}>
+//     <input
+//       onChange={this.update("text")}
+//       value={this.state.text}
+//       type="text"
+//       placeholder="Search Questions"
+//       />
+//     <button>Search</button>
+//   </form>
+// );

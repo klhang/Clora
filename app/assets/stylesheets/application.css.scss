@@ -14,6 +14,12 @@
  *= require_self
  */
 
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ 
+
 /*.hero-img {
   background: url("http://res.cloudinary.com/shuttr/image/upload/v1505958827/skogafoss_z6twbu.jpg");
   background-position: center center;
@@ -36,7 +42,7 @@
   text-decoration: none;
   font-size: 25px;
 }*/
-
+/*
 body {
   font-family: "Abel", sans-serif;
   background-image: url(./background.jpg);
@@ -47,7 +53,7 @@ body {
 
 .right-align-text {
   text-align: right;
-}
+}*/
 /*header {
   margin-left: 40%;
 }
