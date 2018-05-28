@@ -60,40 +60,36 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to Clora!
-          <br />
-          <div className="nav_links">
-            Please {this.props.formType} or {this.navLink()}
-          </div>
-          {this.renderErrors()}
-          <div className="login-form">
-            <br />
-            <label>
-              Username:
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <label>
-              Password:
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                className="login-input"
-              />
-            </label>
-            <br />
-            <input type="submit" value="Submit" />
-          </div>
-          <button onClick={this.handleDemoLogin}>Demo</button>
-        </form>
+      <div className='login'>
+        <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
+
+          <form onSubmit={this.handleSubmit} className="login-form-box row">
+            {this.renderErrors()}
+            <div className='form-group '>
+              <h4 >
+                <b>
+                  <div className="nav_links">
+                    Please {this.props.formType} or {this.navLink()}
+                  </div>
+                </b>
+              </h4>
+
+              <input id='email' className='form-control' placeholder='Email' value={this.state.email} onChange={this.update('email')}/>
+            </div>
+
+            <div className='form-group'>
+              <span ></span>
+              <input id='password' type='password' className='form-control' value={this.state.password} onChange={this.update('password')} placeholder='Password'/>
+
+            </div>
+            <input type="submit" value="Submit" className='btn wonderful-button pull-right'></input>
+
+          </form>
+          <form onSubmit={this.handleDemoLogin} className="login-form-box row demo-login ">
+            <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
+          </form>
+
+      </div>
       </div>
     );
   }

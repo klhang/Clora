@@ -22,7 +22,8 @@ class QuestionIndex extends React.Component {
     });
 
     return (
-      <div className="QuestionIndex">
+      <div>
+        <div className='container well'>
         <ConditionalComponent
           trueComponent={() => (
             <div className="QuestionIndexFormNew">
@@ -40,8 +41,19 @@ class QuestionIndex extends React.Component {
           falseComponent={() => <div />}
         />
         <br />
-        <h2>Suggestions For You:</h2>
-        <ul>{questions}</ul>
+    
+
+
+
+
+
+         <div className="question-list list-unstyled">
+           <div className='indexquestions'>
+             {questions}
+           </div>
+         </div>
+
+        </div>
       </div>
     );
   }

@@ -29,23 +29,28 @@ class QuestionIndexItem extends React.Component {
 
     if (!answer) {
       return (
-        <li className="QuestionItem">
-          <Link to={`/questions/${question.id}`}>
-            <h2 className="QuestionItemQuestion">{question.title}</h2>
+        <div className='container well'>
+          <div className="row all-margin-10">
+          <Link className="black bold" to={`/questions/${question.id}`}>
+            <span className="left-margin-10">{"    " + question.title}</span>
           </Link>
-        </li>
+          </div>
+        </div>
       );
     }
 
     return (
-      <li className="QuestionItem">
-        <Link to={`/questions/${question.id}`}>
-          <h2 className="QuestionItemQuestion">{question.title}</h2>
-        </Link>
-        <ul>
-          <AnswerShowContainer answerId={answer.id} />
-        </ul>
-      </li>
+      <div className='container well'>
+        <div className="row all-margin-10">
+          <Link className="black bold" to={`/questions/${question.id}`}>
+            <span className="left-margin-10">{question.title}</span>
+          </Link>
+
+          <ul>
+            <AnswerShowContainer answerId={answer.id} />
+          </ul>
+      </div>
+    </div>
     );
   }
 }

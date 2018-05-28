@@ -68,18 +68,24 @@ class QuestionShow extends React.Component {
     if (this.state.editQuestionClicked === false) {
       return (
         <div>
-          <h2>{question.title}</h2>
+          <div className="black bold">
+            <span className="left-margin-10">{"    " + question.title}</span>
+          </div>
           <p className="QuestionShowDescription">{question.description}</p>
 
           <div className="QuestionShowButtonLine">
             <ConditionalComponent
               trueComponent={() => (
-                <button
-                  className="NewAnswerButton"
-                  onClick={this.updateAnswerClicked(true)}
-                >
-                  Answer
-                </button>
+                <div>
+
+
+
+                <span className="left-margin-10  ">
+                  <a className="Answer accordion-toggle" data-toggle="collapse" data-parent="#accordion2" onClick={this.updateAnswerClicked(true)} role="button">
+                    <span className="glyphicon glyphicon-pencil"></span>Answer
+                  </a>
+                </span>
+                  </div>
               )}
               falseComponent={() => <div />}
             />

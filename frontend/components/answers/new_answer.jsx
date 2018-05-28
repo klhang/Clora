@@ -1,6 +1,7 @@
 import React from "react";
 import merge from "lodash/merge";
 
+
 class NewAnswer extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,7 @@ class NewAnswer extends React.Component {
         question_id: this.props.questionId
       }
     };
+
     this.handleAnswerSubmit = this.handleAnswerSubmit.bind(this);
   }
 
@@ -34,23 +36,23 @@ class NewAnswer extends React.Component {
   render() {
     if (this.props.answerClicked === true) {
       return (
-        <div className="NewAnswer">
-          <a className="NewAnswerUserName">{this.props.currentUser.username}</a>
-          <textarea
-            className="NewAnswerText"
-            placeholder="Please create your answer here"
-            onChange={this.updateAnswerField()}
-            value={this.state.answer.text}
-          />
-          <div className="NewAnswerButtonBar">
-            <button
-              className="SubmitNewAnswerButton"
-              onClick={this.handleAnswerSubmit}
-            >
-              Submit Answer
-            </button>
-          </div>
+        <div className='form-group'>
+
+
+            <textarea
+              className="answer-editor"
+              placeholder="Please create your answer here"
+              onChange={this.updateAnswerField()}
+              value={this.state.answer.text}
+            />
+          <button className="PerfectColdButton all-margin-10" onClick={this.handleAnswerSubmit}>
+            <span>Submit</span>
+          </button>
         </div>
+
+
+
+
       );
     } else {
       return <div />;

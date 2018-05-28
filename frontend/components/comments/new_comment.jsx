@@ -34,17 +34,17 @@ class NewComment extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="NewCommentForm" onSubmit={this.submitNewComment}>
-          <input
-            className="CommentInput"
-            type="text"
-            placeholder="Add a comment here..."
-            onChange={this.updateCommentField()}
-            value={this.state.comment.text}
-          />
-          <input className="NewCommentButton" type="submit" value="Comment" />
-        </form>
+
+
+      <div className='container well'>
+      <div className="row add-comment-form">
+        <div className="left-padding-30">
+          <input type="text" className="form-control" id="comment_field" onChange={this.updateCommentField()} value={this.state.comment.text} id="question_field" className="left-margin-10 add-comment-form-item add-comment-input line-height-15" placeholder="Add a comment..."/>
+          <button type="submit" onClick={this.submitNewComment} className="add-comment-form-item PerfectColdButton all-margin-10" >
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
       </div>
     );
   }

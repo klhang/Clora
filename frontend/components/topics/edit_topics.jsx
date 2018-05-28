@@ -28,17 +28,21 @@ class EditTopics extends React.Component {
   }
   render() {
     const topics = this.props.topics.map(topic => {
-      return <button onClick={this.handleClick(topic.id)}>{topic.name}</button>;
+      return (
+        <div className="row all-margin-10">
+          <a className="black opacity-80 left-margin-10 ">
+            <button className="font-size-13" onClick={this.handleClick(topic.id)}>{topic.name}</button>
+          </a>
+        </div>
+      )
     });
 
     return (
-      <div className="Topics">
-        <h1>Feeds</h1>
-
-        <ul>
-          <button onClick={this.handleClickAllTopics()}>All Topics</button>
+      <div className ="all-margin-30">
+             <div className='row bottom-padding-10 bottom-boader'>
+                <span className="left-margin-10">Feeds</span>
+             </div>
           {topics}
-        </ul>
       </div>
     );
   }

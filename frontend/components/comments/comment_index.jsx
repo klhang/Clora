@@ -20,14 +20,32 @@ class CommentIndex extends React.Component {
     });
 
     return (
-      <div className="CommentsContainer">
+      <div className="row add-comment-form">
         <NewComment
           currentUser={this.props.currentUser}
           answerId={this.props.answerId}
           createComment={this.props.createComment}
         />
-        <ul>{comments}</ul>
+
+        <div className="left-padding-30">
+
+          <ul className="comment-list list-unstyled">
+            <br/>
+            <div className='indexcomments'>
+              {comments}
+            </div>
+            <br/>
+          </ul>
+
+
+        </div>
       </div>
+
+
+
+
+
+
     );
   }
 }

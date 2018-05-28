@@ -5,12 +5,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 body main#root{
     background: #fafafa;
 }
 
 .btn, .form-control, .a{
     font-size: 12px;
+}
+
+.row {
+  margin-left: 100px;
+  margin-right: -100px;
 }
 
 .brand {
@@ -275,6 +281,7 @@ div h4 p {
 
 .answer-editor{
   min-height: 200px;
+  min-width: 600px;
 }
 
 .answer-editor div button,

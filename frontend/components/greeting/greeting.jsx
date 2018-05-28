@@ -2,7 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import merge from "lodash/merge";
 import { ConditionalComponent } from "../../util/route_util";
-
+import Footer from '.././footer';
 class Greeting extends React.Component {
   constructor(props) {
     super(props);
@@ -15,35 +15,88 @@ class Greeting extends React.Component {
 
   sessionLinks() {
     return (
-      <div>
-        <Link className="uone-half column" to="/login">
-          Try
-        </Link>
+      <div className='loginbackground'>
+        <div className="top-margin-80">
+          <div className="centered">
+            <div className='centered'>
+              <div className='logo centered top-margin-30'>
+                <a className="navbar-brand brand " href="#">
+                  <p className='brand'>Clora</p>
+                </a>
+              </div>
+            </div>
+            <br/>
+            <div className="centered slogan col-xs-12">
+              <div>
+                <h4>
+                  <div>
+                    <Link to="/login">
+                      Try
+                    </Link>
+                  </div>
+                  <br/>
+                  <br/>
+                </h4>
+              </div>
+            </div>
+            <Footer />
+          </div>
+        </div>
       </div>
     );
   }
 
+
+
   personalGreeting(currentUser, logout) {
-    const search_input = (
-      <form onSubmit={this.handleSearch.bind(this)}>
-        <input
-          onChange={this.update("text")}
-          value={this.state.text}
-          type="text"
-          placeholder="Search Questions"
-        />
-        <button>Search</button>
-      </form>
-    );
 
     return (
-      <hgroup>
-        {search_input}
-        <h2 className="header-name">Hi, {currentUser.username}!</h2>{" "}
-        <button className="header-button" onClick={logout}>
-          Log Out
-        </button>
-      </hgroup>
+      <div className='col-lg-offset-4'>
+        <nav className="navbar navbar-default navbar-fixed-top">
+          <div className="container">
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <a className="navbar-brand brand-sm" href="#">
+                <span className='brand-sm'>Duora</span>
+              </a>
+            </div>
+
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+              <form className="navbar-form navbar-left dropdown" onSubmit={this.handleSearch.bind(this)}>
+                <div className="form-group">
+                  <input
+                    className="form-control dropdown-toggle right-margin-10"
+                    onChange={this.update("text")}
+                    value={this.state.text}
+                    type="text"
+                    placeholder="Search Questions"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-default"
+                  >Search</button>
+              </form>
+              <ul className="nav navbar-nav navbar-right">
+
+                <li className="dropdown">
+                    <a href="#" onClick={logout}>{currentUser.username} Logout</a>
+                </li>
+              </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
     );
   }
 
@@ -74,8 +127,7 @@ class Greeting extends React.Component {
   render() {
     const { currentUser } = this.props;
     return (
-      <div className="one-half column">
-
+      <div>
         {currentUser ? (
           this.personalGreeting(currentUser, this.logoutAndRedirect)
         ) : (
@@ -87,15 +139,3 @@ class Greeting extends React.Component {
 }
 
 export default withRouter(Greeting);
-
-// const search_input = (
-//   <form onSubmit={this.handleSearch.bind(this)}>
-//     <input
-//       onChange={this.update("text")}
-//       value={this.state.text}
-//       type="text"
-//       placeholder="Search Questions"
-//       />
-//     <button>Search</button>
-//   </form>
-// );

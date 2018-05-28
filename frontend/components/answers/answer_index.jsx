@@ -17,7 +17,7 @@ class AnswerIndex extends React.Component {
 
     return (
       <div>
-        <ul>{answers}</ul>
+      {answers}
       </div>
     );
   }
