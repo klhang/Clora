@@ -27,11 +27,6 @@ class QuestionIndex extends React.Component {
         <ConditionalComponent
           trueComponent={() => (
             <div className="QuestionIndexFormNew">
-              <div className="QuestionIndexUserHeader">
-                <a className="QuestionIndexUserName">
-                  {this.props.currentUser.username}
-                </a>
-              </div>
               <NewQuestion
                 createQuestion={this.props.createQuestion}
                 currentUser={this.props.currentUser}
@@ -41,7 +36,7 @@ class QuestionIndex extends React.Component {
           falseComponent={() => <div />}
         />
         <br />
-    
+
 
 
 

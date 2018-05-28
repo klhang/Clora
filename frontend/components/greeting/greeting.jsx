@@ -28,10 +28,22 @@ class Greeting extends React.Component {
             <br/>
             <div className="centered slogan col-xs-12">
               <div>
+                <div className='centered'>
+                <div className="centered slogan col-xs-12">
+                  <div>
+                    <h4>
+                      <p>Curiosity is the essence of human existence. 'Who are we? Where are we? Where do we come from? Where are we going?'... I don't know. I don't have any answers to those questions. I don't know what's over there around the corner. But I want to find out.
+      ---Eugene Cernan
+                      <br/>
+                      <br/>
+                    </h4>
+                  </div>
+                </div>
+                </div>
                 <h4>
                   <div>
                     <Link to="/login">
-                      Try
+                      Continue
                     </Link>
                   </div>
                   <br/>
@@ -62,7 +74,7 @@ class Greeting extends React.Component {
                 <span className="icon-bar"></span>
               </button>
               <a className="navbar-brand brand-sm" href="#">
-                <span className='brand-sm'>Duora</span>
+                <span className='brand-sm'>Clora</span>
               </a>
             </div>
 
@@ -85,9 +97,9 @@ class Greeting extends React.Component {
               </form>
               <ul className="nav navbar-nav navbar-right">
 
-                <li className="dropdown">
-                    <a href="#" onClick={logout}>{currentUser.username} Logout</a>
-                </li>
+                      <li className="dropdown">
+                          <a href="#" onClick={logout}>{currentUser.username}Logout</a>
+                      </li>
               </ul>
         </div>
       </div>

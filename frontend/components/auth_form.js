@@ -18,7 +18,7 @@ const AuthForm = () => (
         <div className='centered'>
           <div className='logo centered top-margin-30'>
             <a className="navbar-brand brand " href="#">
-              <p className='brand'>Duora</p>
+              <p className='brand'>Clora</p>
             </a>
           </div>
         </div>

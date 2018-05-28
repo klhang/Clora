@@ -58,12 +58,14 @@ class SessionForm extends React.Component {
     );
   }
 
+
+
   render() {
     return (
       <div className='login'>
         <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
 
-          <form onSubmit={this.handleSubmit} className="login-form-box row">
+          <form onSubmit={this.handleSubmit} className="login-form-box row" style={{marginLeft: '200px',marginRight:'-200px'}}>
             {this.renderErrors()}
             <div className='form-group '>
               <h4 >
@@ -85,8 +87,8 @@ class SessionForm extends React.Component {
             <input type="submit" value="Submit" className='btn wonderful-button pull-right'></input>
 
           </form>
-          <form onSubmit={this.handleDemoLogin} className="login-form-box row demo-login ">
-            <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
+          <form onSubmit={this.handleDemoLogin} className="login-form-box row demo-login " style={{marginLeft: '200px',marginRight:'-200px'}}>
+            <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right' ></input>
           </form>
 
       </div>

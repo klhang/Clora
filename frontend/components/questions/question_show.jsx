@@ -68,6 +68,7 @@ class QuestionShow extends React.Component {
     if (this.state.editQuestionClicked === false) {
       return (
         <div>
+          <br></br>
           <div className="black bold">
             <span className="left-margin-10">{"    " + question.title}</span>
           </div>
@@ -144,12 +145,7 @@ class QuestionShow extends React.Component {
           <div className="QuestionShowQuestion">
             {this.questionBody()}
             {question.myQuestion ? (
-              <button
-                className="CancelButton"
-                onClick={this.updateEditQuestionClicked(true)}
-              >
-                Edit
-              </button>
+              ""
             ) : (
               ""
             )}

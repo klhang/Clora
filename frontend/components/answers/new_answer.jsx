@@ -36,9 +36,10 @@ class NewAnswer extends React.Component {
   render() {
     if (this.props.answerClicked === true) {
       return (
+
         <div className='form-group'>
 
-
+          <br></br>
             <textarea
               className="answer-editor"
               placeholder="Please create your answer here"

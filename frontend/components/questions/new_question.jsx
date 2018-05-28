@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modal from 'react-bootstrap-modal';
 import merge from "lodash/merge";
 // import { hashHistory } from "react-router";
 
@@ -12,11 +13,17 @@ class NewQuestion extends React.Component {
       question: {
         title: "",
         description: "",
+          showModal: false,
         author_id: this.props.currentUser.id
       }
     };
+    this.open = this.open.bind(this);
+    this.close = this.close.bind(this);
   }
 
+  componentDidMount(){
+    this.setState({showModal: false})
+  }
   updateNewQuestionClicked(boolean) {
     return e => this.setState({ newQuestionClicked: boolean });
   }
@@ -36,59 +43,60 @@ class NewQuestion extends React.Component {
     this.props.createQuestion(question).then(newQuestion => {
       let newState = merge({}, this.state, {
         question: { title: "" },
-        newQuestionClicked: false
+        newQuestionClicked: false,
+        showModal:false
       });
       this.setState(newState);
       // hashHistory.push(`/questions/${newQuestion.question.id}`);
     });
   }
 
+  close(){
+  this.setState({ showModal: false });
+  }
+
+  open(){
+    this.setState({ showModal: true });
+  }
+
   render() {
-    if (this.state.newQuestionClicked === false) {
+
       return (
-        <div>
-          <a
-            className="NewQuestionLink"
-            onClick={this.updateNewQuestionClicked(true)}
-          >
-            What's your question?
-          </a>
-        </div>
-      );
-    } else {
-      return (
-        <div className="NewQuestionContainer">
-          <div className="NewQuestionBox">
-            <div className="NewQuestionBody">
-              <span className="QuestionIndexUserName">
-                <a>{this.props.currentUser.username}</a> asks
-              </span>
-              <textarea
-                className="NewQuestionInput"
-                placeholder="This is the begining of your question."
-                onChange={this.updateQuestionField()}
-                value={this.state.question.title}
-              />
-            </div>
-            <div className="NewQuestionButtonBar">
-              <button
-                className="CancelButton"
-                onClick={this.updateNewQuestionClicked(false)}
-              >
-                Cancel
-              </button>
-              <button
-                className="NewQuestionButton"
-                onClick={this.submitNewQuestion}
-              >
-                Create A Question
-              </button>
+        <div className='container well'>
+
+
+          <div>
+            <a className="askquestion grey font-size-18 bold"
+              onClick={this.open}>
+            What is your question?
+            </a>
+
+            <Modal id="askQuestionModal" show={this.state.showModal} onHide={this.close} >
+              <Modal.Header closeButton>
+              </Modal.Header>
+              <Modal.Body>
+                <span>
+                  <div className="user grey">{this.props.currentUser.username}</div>
+                </span>
+
+                <div>
+                  <input type="text" onChange={this.updateQuestionField()} value={this.state.question.title}
+                    className="askquestion font-size-18 bold no-border top-margin-10"
+                    placeholder='I want to know...'/>
+                </div>
+
+              </Modal.Body>
+              <Modal.Footer>
+                <button type="button" className="PerfectColdButton" onClick={this.submitNewQuestion}>Ask Question</button>
+              </Modal.Footer>
+
+              </Modal>
+
             </div>
           </div>
-        </div>
       );
     }
-  }
+
 }
 
 export default NewQuestion;

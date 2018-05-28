@@ -36,13 +36,30 @@ class EditTopics extends React.Component {
         </div>
       )
     });
+    const alltopics = this.props.topics.map(topic => {
+      return (
+        <div className="row all-margin-10">
+          <a className="black opacity-80 left-margin-10 ">
+            <button className="font-size-13" onClick={this.handleClickAllTopics()}>ALl topic</button>
+          </a>
+        </div>
+      )
+    });
 
     return (
       <div className ="all-margin-30">
              <div className='row bottom-padding-10 bottom-boader'>
                 <span className="left-margin-10">Feeds</span>
-             </div>
+              </div>
+
+                <div className="row all-margin-10">
+                  <a className="black opacity-80 left-margin-10 ">
+                    <button className="font-size-13" onClick={this.handleClickAllTopics()}>ALL TOPIC</button>
+                  </a>
+                </div>
+
           {topics}
+
       </div>
     );
   }
