@@ -20,7 +20,9 @@ password: "password"},{username: "Aiden",
 password: "password"},{username: "Mary",
 password: "password"},{username: "Cindy",
 password: "password"},{username: "Bernice",
-password: "password"},{username: "Luoxi",
+password: "password"},{username: "Tom",
+password: "password"},{username: "Marcus",
+password: "password"},{username: "Karen",
 password: "password"},{username:"Guest", password:"password"}])
 
 topics = Topic.create([
@@ -30,7 +32,7 @@ topics = Topic.create([
     {
       title: "How many days should I spend in China?",
       description: "",
-      author_id: users[3].id,
+      author_id: users[0].id,
       topic_ids: [topics[0].id]
     },
     {
@@ -62,7 +64,13 @@ topics = Topic.create([
       description: "",
       author_id: users[2].id,
       topic_ids: [topics[5].id]
-    }
+    },
+    {
+      title: "What has been your best career decision(s)?",
+      description: "",
+      author_id: users[4].id,
+      topic_ids: [topics[1].id]
+    },
   ])
 
   answers= Answer.create ([
@@ -178,6 +186,27 @@ It tasted like ammonia. And being preserved, it was rubbery. The more I chewed, 
 
 My host said kindly, 'A lot of Koreans don't like it either.' Now he tells me!",
     question_id: questions[5].id
+  },
+  {
+    author_id: users[2].id,
+    text: "I was a hardcore gamer & used to play 8 hours of gaming daily even without proper food. I used to take money with my parents for college related expenses, exam fees etc. But I never use to go for college & used to have fun by playing.
+
+Actually we where a team of 5 people & we where sponsored by a company & used to participate in gaming tournaments within India & used to win lot of prices. But the prices was been taken by the sponsors & we use to get very small amount out of it. Since I was winning most of the tournaments, I had decided to make this as my profession (this may sound crazy), Since I had the confidence of becoming a popular gamer. I was actually addicted to it so I didn't have a choice also.
+
+All was going smooth, Unfortunately Since I was not attending my college regularly my parents came to know about it & they didn't even ask or scolded me anything. That silence really made me feel so sad.
+
+After this what my tough days also started, I was losing most of my games & was losing the identity of gamer due to bad gaming skills & also lost my position from my team & there was no one to help me out to recover back to gaming.
+
+At this time I didn't realize.
+
+Everything happens for good
+
+Days just passed & I came to know some other person has been replaced to my position & I realized that in reality through gaming I cannot be financially good & it is not a profession also and decided to quit gaming.
+
+One good thing that helped me was, Since I used to spent more time in computer, I had the craze in software gaming development work, Finally I joined a coaching center & Learnt programming language within less time & completed my graduation. Joined a startup for a very basic salary without any expectations & Due to my hardwork and struggle. Now I'm successfully working as a Software engineer in a MNC earning a decent salary & also play games at free time. Right choice at right moment made me successful.
+
+Sometimes in life you have to make a decision and make sacrifices.",
+    question_id: questions[6].id
   }
 ])
 

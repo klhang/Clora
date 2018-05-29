@@ -21,7 +21,7 @@ class Greeting extends React.Component {
             <div className='centered'>
               <div className='logo centered top-margin-30'>
                 <a className="navbar-brand brand " href="#">
-                  <p className='brand'>Clora</p>
+                  <p className='brand'>Curiosity</p>
                 </a>
               </div>
             </div>
@@ -32,8 +32,7 @@ class Greeting extends React.Component {
                 <div className="centered slogan col-xs-12">
                   <div>
                     <h4>
-                      <p>Curiosity is the essence of human existence. 'Who are we? Where are we? Where do we come from? Where are we going?'... I don't know. I don't have any answers to those questions. I don't know what's over there around the corner. But I want to find out.
-      ---Eugene Cernan
+                      <p>I think, at a child's birth, if a mother could ask a fairy godmother to endow it with the most useful gift, that gift should be curiosity.   ----  Eleanor Roosevelt</p>
                       <br/>
                       <br/>
                     </h4>
@@ -73,9 +72,9 @@ class Greeting extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand brand-sm" href="#">
-                <span className='brand-sm'>Clora</span>
-              </a>
+              <div className="navbar-brand brand-sm" >
+                <span className='brand-sm'>Curiosity</span>
+              </div>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -98,7 +97,7 @@ class Greeting extends React.Component {
               <ul className="nav navbar-nav navbar-right">
 
                       <li className="dropdown">
-                          <a href="#" onClick={logout}>{currentUser.username}Logout</a>
+                          <a href="#" onClick={logout}>{currentUser.username} Logout</a>
                       </li>
               </ul>
         </div>

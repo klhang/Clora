@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
       <div className='login'>
         <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
 
-          <form onSubmit={this.handleSubmit} className="login-form-box row" style={{marginLeft: '200px',marginRight:'-200px'}}>
+          <form onSubmit={this.handleSubmit} className="login-form-box row" style={{marginLeft: '200px',marginRight:'-200px',paddingRight: '15px'}}>
             {this.renderErrors()}
             <div className='form-group '>
               <h4 >
@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
                 </b>
               </h4>
 
-              <input id='email' className='form-control' placeholder='Email' value={this.state.email} onChange={this.update('email')}/>
+              <input id='email' className='form-control' placeholder='Username' value={this.state.username} onChange={this.update('username')}/>
             </div>
 
             <div className='form-group'>
@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
             <input type="submit" value="Submit" className='btn wonderful-button pull-right'></input>
 
           </form>
-          <form onSubmit={this.handleDemoLogin} className="login-form-box row demo-login " style={{marginLeft: '200px',marginRight:'-200px'}}>
+          <form onSubmit={this.handleDemoLogin} className="login-form-box row demo-login " style={{marginLeft: '200px',marginRight:'-200px',paddingRight: '15px'}}>
             <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right' ></input>
           </form>
 

@@ -6,6 +6,7 @@ import QuestionDetailContainer from './question/question_detail_container';
 import FeedIndexContainer from './topic/feed_index_container';
 import TopicDetailContainer from './topic/topic_detail_container';
 
+
 class MainFrame extends React.Component {
   constructor(props) {
     super(props)
@@ -19,7 +20,7 @@ class MainFrame extends React.Component {
           <div className="col-md-2 col-lg-2">
               <Route path="/" component={FeedIndexContainer} />
           </div>
-          <div className="col-md-8 col-lg-6">
+          <div className="col-md-10 col-lg-10">
             <br />
             <Switch>
               <Route exact path="/topics/:topicId" component={TopicDetailContainer}/>
@@ -29,7 +30,6 @@ class MainFrame extends React.Component {
             </Switch>
           </div>
           <div className="col-md-2 col-lg-2 subscriptions">
-
           </div>
         </div>
       </div>
