@@ -21,12 +21,12 @@ password: "password"},{username: "Mary",
 password: "password"},{username: "Cindy",
 password: "password"},{username: "Bernice",
 password: "password"},{username: "Tom",
-password: "password"},{username: "Marcus",
+password: "password"},{username: "Chris",
 password: "password"},{username: "Karen",
 password: "password"},{username:"Guest", password:"password"}])
 
 topics = Topic.create([
-  {name: "General"},{name: "Career"},{name: "Real Estate"},{name: "Psychology"},{name: "Children"},{name: "Food"}])
+  {name: "General"},{name: "Career"},{name: "Real Estate"},{name: "Psychology"},{name: "Children"},{name: "Food"},{name:"Nature"},{name:"Health"},{name:"Astronomy"}])
 
   questions = Question.create([
     {
@@ -71,6 +71,90 @@ topics = Topic.create([
       author_id: users[4].id,
       topic_ids: [topics[1].id]
     },
+    {
+      title: "Why are people from the future not time traveling to our period, assuming time travel technology is available in the future?",
+      description: "",
+      author_id: users[1].id,
+      topic_ids: [topics[0].id]
+    },
+    {
+      title: "What are some things a new Tesla owner needs to know?",
+      description: "",
+      author_id: users[2].id,
+      topic_ids: [topics[0].id]
+    },
+    {
+      title: "How can I decide which career to pursue?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[1].id]
+    },
+    {
+      title: "How can I start a real estate business?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[2].id]
+    },
+    {
+      title: "What are some psychological facts that people don't know?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[3].id]
+    },
+    {
+      title: "What can adults learn from children?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[4].id]
+    },
+    {
+      title: "What are the best, simplest toys for kids?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[4].id]
+    },
+    {
+      title: "What is the most overrated and over-praised food?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[5].id]
+    },
+    {
+      title: "What are some of the most mind-blowing facts about plants and trees?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[6].id]
+    },
+    {
+      title: "What are the differences between nature and its society?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[6].id]
+    },
+    {
+      title: "Is milk good or bad for health?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[7].id]
+    },
+    {
+      title: "What are the health benefits of smiling?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[7].id]
+    },
+    {
+      title: "What are some cool facts about the Universe?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[8].id]
+    },
+    {
+      title: "Is there really an hypothesis explaining the origin of the solar system?",
+      description: "",
+      author_id: users[6].id,
+      topic_ids: [topics[8].id]
+    }
   ])
 
   answers= Answer.create ([
@@ -100,7 +184,7 @@ If you want to have a comprehensive understanding of Chinese culture, you should
   },
   {
     author_id: users[5].id,
-    text: "As Loooooong as you can!",
+    text: "As Loooooong as you can! You will never regret starying there for a longer period of time. Last time I went there, I stayed for two month and only find that's too short the time to even cover the four first-tier cities: Beijing, Shanghai, Guangzhou and Shenzhen. Therefor I would recommand anyone to stay as loog as they can in China if they have the time.",
     question_id: questions[0].id
   },
   {
@@ -175,7 +259,8 @@ Examples: Bruce Wayne is motivated to overcome his fear of bats and use this for
   },
   {
     author_id: users[5].id,
-    text: "Attention",
+    text: "Attention.
+Scientists find that a child who is watched by parents on the scene is more likely to complete the building blocks task, even if they cannot get any help from the parents. Sometimes attention is the biggest help for a child.",
     question_id: questions[4].id
   },
   {
@@ -207,7 +292,22 @@ One good thing that helped me was, Since I used to spent more time in computer, 
 
 Sometimes in life you have to make a decision and make sacrifices.",
     question_id: questions[6].id
-  }
+  },
+  {
+    author_id: users[0].id,
+    text: "This time period isn't nearly as interesting to travel to as you might think. It is well documented, possibly dangerous, and takes up a tiny sliver of the interesting history of Planet Earth. Time travel is impossible. (Various reasons listed.) Because time travel is dangerous, due to paradox worries or the need to simultaneously teleport on a galactic scale (because the Solar System moves), or very expensive. These options result in only limited trips being made. Which relates back to the first issue; our time period may not be worth the risk. Time travelers are undetectable by choice. There are no people left in the future to travel to other times. They either died or technologically regressed before time travel was invented.",
+    question_id: questions[7].id
+  },
+  {
+    author_id: users[4].id,
+    text: "I was a new Tesla owner (Model S) about 3 years ago, so my experience may not be the same as current new owners, but my thoughts are:
+
+Model S door handles get very hot in afternoon summer sun. Park your car with the driver's side door handles in the shade when you can.
+When you take off from a stop light (and you know you will), watch out for people turning right on red in front of you. A Tesla will get across the intersection way faster than most drivers expect. Don't run into them.
+Driving a Tesla to work gives you something to look forward all day; driving home in a Tesla. Every day in a Tesla is better than the days you're not in a Tesla.
+If you're married, make sure you share your Tesla. Don't want a jealous spouse. They will appreciate it.",
+    question_id: questions[8].id
+  },
 ])
 
 comments = Comment.create([
