@@ -1,9 +1,10 @@
-# Clora
+# GoodCuriosity
 
-Clora is a full-stack web application inspired by Quora.com, where users can post questions and answer any question posted. On the back end, it uses Ruby on Rails and a PostgreSQL database, and on the front end, React with Redux data architecture.
+GoodCuriosity is a full-stack web application inspired by Quora.com, where users can post questions and answer any question posted. On the back end, it uses Ruby on Rails and a PostgreSQL database, and on the front end, React with Redux data architecture.
 
 ## Ask Questions and Share Knowledge
-[https://tryclora.herokuapp.com](https://tryclora.herokuapp.com)
+[http://www.goodcuriosity.com/](http://www.goodcuriosity.com/)
+
 
 ## Database
 

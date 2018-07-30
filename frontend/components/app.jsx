@@ -22,46 +22,41 @@ const App = () => (
     <AuthRoute path='/login' component={AuthForm}/>
     <AuthRoute path='/signup' component={AuthForm}/>
 
+    <div className="row">
+      <div className="three columns">
+        <Route
+          path="/"
+          component={() => (
+            <ConditionalComponent
+              trueComponent={EditTopicsContainer}
+              falseComponent={() => <div />}
+            />
+          )}
+        />
+      </div>
 
+      <div className="nine columns">
+        <Route
+          exact
+          path="/"
+          component={() => (
+            <ConditionalComponent
+              trueComponent={QuestionIndexContainer}
+              falseComponent={() => <div />}
+            />
+          )}
+        />
 
-
-
-
-          <div className="container jumbotron">
-            <div className="col-md-2 col-lg-2">
-              <Route
-                path="/"
-                component={() => (
-                  <ConditionalComponent
-                    trueComponent={EditTopicsContainer}
-                    falseComponent={() => <div />}
-                  />
-                )}
-              />
-            </div>
-
-            <div className="col-md-8 col-lg-6">
-              <Route
-                exact
-                path="/"
-                component={() => (
-                  <ConditionalComponent
-                    trueComponent={QuestionIndexContainer}
-                    falseComponent={() => <div />}
-                  />
-                )}
-              />
-
-              <Switch>
-                <Route
-                  exact
-                  path="/questions/:questionId"
-                  component={QuestionShowContainer}
-                />
-                <Route path="/questions" component={QuestionIndexContainer} />
-              </Switch>
-            </div>
-          </div>
+        <Switch>
+          <Route
+            exact
+            path="/questions/:questionId"
+            component={QuestionShowContainer}
+          />
+          <Route path="/questions" component={QuestionIndexContainer} />
+        </Switch>
+      </div>
+    </div>
   </div>
 );
 
